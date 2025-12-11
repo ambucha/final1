@@ -4,6 +4,10 @@
 #include <string>
 using namespace std;
 
+// lets make a functino to print inside a given range, tbh this is super similar to the last mielstone, just the if conditions inside the loop are gonna be different
+// returns nothing and takes the map as an argument
+void printRange(const map<string,int>& airports);
+
 int main() {
     // lets start with the first part, getting the data
     // start by opening the file (as well as making the map
@@ -32,7 +36,7 @@ int main() {
     }
 
     // ok now we want to display it to the user
-    cout << "All airport traffic coutns:" << endl;
+    cout << "All airport traffic counts:" << endl; 
 
     // go through the map and print out the data
     for(auto const& a : airports){
@@ -52,14 +56,40 @@ int main() {
     }
 
     // now we use this in order to fin dhte airports with the most traffic, since we will be searching through every airport with the given traffic, the airports with the same triffic will all be displayed
-    cout << "Busiest airport(s) with count " << max << ":" << endl;
+    // was outputting ugly needs an extra space
+    cout << endl << "Busiest airport(s) with count " << max << ":" << endl;
     for(const auto &a : airports){
         if(a.second == max){
             cout << a.first << " " << a.second << endl;
             // display the data for the busiest airports
         }
     }
-    
+
+    // milestone 3 time
+    printRange(airports);
 
     return 0;
+}
+
+void printRange(const map<string,int>& airports){
+    int high;
+    int low;
+
+
+    // prompt for rnages
+    cout << "Enter min of the range: ";
+    cin >> low;
+    cout << "Enter max of the range: ";
+    cin >> high;
+
+    // output airports in that range
+    cout << "Airports with traffic in range [" << low << ", " << high << "]:" << endl;
+    for(const auto &a : airports){
+        if(a.second >= low && a.second <= high){
+            cout << a.first << " " << a.second << endl;
+            // display the data for the airports within the given range
+        }
+    }
+
+    cout << endl;
 }
