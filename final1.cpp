@@ -26,7 +26,21 @@ int main() {
     while(input >> origin >> destination){
         // now that we have the data collected now we gotta start putting it into the map
         // we just care about traffic, not where the flight comes from etc, so we just need to increment each time we see teh airport
-        
+        airports[origin]++;
+        airports[destination]++;
+        // increments each time an airport, wether it be the origin or destination, is seen
     }
 
+    // ok now we want to display it to the user
+    cout << "All airport traffic coutns:" << endl;
+
+    // go through the map and print out the data
+    for(auto const& a : airports){
+        cout << a.first << " " << a.second << endl;
+        // this print outs the airport name followed by the traffic count
+    }
+
+    // alright off to milestone 2 now
+
+    return 0;
 }
