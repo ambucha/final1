@@ -41,6 +41,25 @@ int main() {
     }
 
     // alright off to milestone 2 now
+    // set up a for loop to find the max count, then set up a for loop to find the airports with that max count
+    // this way ties will be allowed
+    int max = 0;
+    for(const auto& a : airports){
+        if(a.second > max){
+            max = a.second;
+            // this sets it up so that we go through the airports and find what the maximum traffic is
+        }
+    }
+
+    // now we use this in order to fin dhte airports with the most traffic, since we will be searching through every airport with the given traffic, the airports with the same triffic will all be displayed
+    cout << "Busiest airport(s) with count " << max << ":" << endl;
+    for(const auto &a : airports){
+        if(a.second == max){
+            cout << a.first << " " << a.second << endl;
+            // display the data for the busiest airports
+        }
+    }
+    
 
     return 0;
 }
